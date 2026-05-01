@@ -42,6 +42,19 @@ export const projects = [
     ],
   },
   {
+    title: "Desarrollo de pÃ¡ginas web",
+    status: "En desarrollo / Servicio inicial",
+    description:
+      "Una lÃ­nea de trabajo enfocada en crear webs sencillas, limpias y funcionales para proyectos personales, perfiles tÃ©cnicos y pequeÃ±os negocios. caarrasco.dev es la primera muestra real de este enfoque.",
+    tags: ["Astro", "Web", "Portfolio", "DiseÃ±o limpio", "Presencia online"],
+    links: [
+      {
+        label: "Ver web",
+        href: "https://caarrasco.dev",
+      },
+    ],
+  },
+  {
     title: "ProxBot",
     status: "Open-source",
     description:
