@@ -1,0 +1,247 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/portfolio.js";
+
+const pageTitle = "Perfil técnico | Pablo Carrasco";
+const pageDescription =
+  "Perfil técnico de Pablo Carrasco: homelab, Linux, redes, Discord bots, seguridad defensiva, PCs, impresión 3D y tecnología práctica.";
+
+const clickAndBuildLinks = projects.find((project) => project.title === "Click & Build")?.links ?? [];
+
+const profileProjects = [
+  {
+    title: "Homelab económico",
+    status: "Documentación",
+    description:
+      "Laboratorio casero montado con enfoque práctico, económico y documentado. La idea es aprender infraestructura real usando hardware accesible, virtualización ligera y servicios útiles para el día a día.",
+    tags: ["Linux", "Proxmox", "LXC", "Redes", "Self-hosting"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Caarrasco22/homelab-economico",
+      },
+    ],
+  },
+  {
+    title: "ProxBot",
+    status: "En desarrollo",
+    description:
+      "Bot de Discord para homelabs pequeños y medianos. Funciona como un panel ligero para consultar servicios, documentación, comandos útiles y estado básico del entorno desde Discord.",
+    tags: ["Discord", "Homelab", "Node.js", "Linux"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Caarrasco22/proxbot",
+      },
+    ],
+  },
+  {
+    title: "Driftwatch",
+    status: "Early v0.1",
+    description:
+      "Herramienta de auditoría defensiva para Discord centrada en detectar desviaciones de seguridad, permisos peligrosos, cambios críticos, exposición innecesaria y señales de riesgo dentro de servidores.",
+    tags: ["Discord", "Seguridad", "Node.js", "SQLite", "Auditoría defensiva"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Caarrasco22/discord-driftwatch",
+      },
+    ],
+  },
+  {
+    title: "Click & Build",
+    status: "Proyecto personal",
+    description:
+      "Proyecto personal centrado en tecnología práctica, PCs, setups, optimización, reparación, impresión 3D y mundo maker. La idea es crear contenido útil y honesto, mostrando procesos reales sin vender humo.",
+    tags: ["PCs", "Setups", "Impresión 3D", "Tecnología", "Contenido"],
+    links: clickAndBuildLinks,
+  },
+];
+
+const currentFocus = [
+  "Mejorar mi homelab paso a paso.",
+  "Reforzar mi base en redes, soporte técnico y fundamentos de ciberseguridad mediante contenidos relacionados con Cisco CCST.",
+  "Aprender administración Linux, DNS, proxy inverso, acceso remoto seguro y automatización básica.",
+  "Desarrollar ProxBot como herramienta real para gestionar documentación y servicios desde Discord.",
+  "Diseñar Driftwatch como herramienta de auditoría defensiva para servidores Discord.",
+  "Crear contenido técnico honesto sobre PCs, homelab, self-hosting, impresión 3D y mundo maker.",
+  "Documentar mejor mis proyectos para convertirlos en experiencia demostrable.",
+];
+
+const learningAreas = [
+  "Fundamentos de redes.",
+  "Contenidos orientados a Cisco CCST.",
+  "Administración básica de sistemas Linux.",
+  "Virtualización con Proxmox.",
+  "Contenedores LXC.",
+  "DNS local y resolución de nombres.",
+  "Reverse proxy y acceso remoto seguro.",
+  "Tailscale, Cloudflare Tunnel y acceso privado a servicios.",
+  "Automatización básica con Bash.",
+  "Bots de Discord con Node.js.",
+  "SQLite para proyectos pequeños y herramientas internas.",
+  "Seguridad defensiva aplicada a servidores y comunidades online.",
+  "Documentación técnica clara.",
+  "Montaje, limpieza y optimización de PCs.",
+  "Impresión 3D aplicada a soluciones reales.",
+];
+
+const workingStyle = [
+  "Prefiero soluciones simples, documentadas y mantenibles.",
+  "Intento exprimir hardware existente antes de comprar más.",
+  "Me interesa entender el proceso, no solo copiar comandos.",
+  "Documento errores, decisiones y mejoras para que otros puedan aprender.",
+  "Me centro en proyectos útiles, no en postureo técnico.",
+  "Me gusta convertir problemas reales en herramientas pequeñas pero prácticas.",
+];
+
+const interests = [
+  "Soporte técnico",
+  "Redes",
+  "Linux",
+  "Homelab",
+  "Self-hosting",
+  "Automatización",
+  "Seguridad defensiva",
+  "Herramientas para comunidades Discord",
+  "Tecnología aplicada a PCs y mundo maker",
+];
+
+const workLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/Caarrasco22",
+  },
+  {
+    label: "Driftwatch",
+    href: "https://github.com/Caarrasco22/discord-driftwatch",
+  },
+  {
+    label: "ProxBot",
+    href: "https://github.com/Caarrasco22/proxbot",
+  },
+  {
+    label: "TikTok Click & Build",
+    href: "https://www.tiktok.com/@clickandbuild_cdz",
+  },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="hero" aria-labelledby="profile-title">
+        <p class="eyebrow">Perfil técnico</p>
+        <h1 id="profile-title">Pablo Carrasco</h1>
+        <p class="hero__lead">
+          Técnico autodidacta centrado en homelab, Linux, redes, self-hosting,
+          automatización práctica y tecnología aplicada.
+        </p>
+        <p class="hero__text">
+          Construyo proyectos reales para aprender, documentar y resolver problemas:
+          desde servidores con Proxmox y contenedores Linux hasta bots de Discord,
+          auditoría defensiva, PCs, impresión 3D y mundo maker.
+        </p>
+        <p class="eyebrow">Learning by building.</p>
+      </section>
+
+      <section class="section" aria-labelledby="focus-title">
+        <div class="section-heading">
+          <p class="eyebrow">Ahora</p>
+          <h2 id="focus-title">En qué estoy enfocado ahora</h2>
+        </div>
+        <ul class="stack-list">
+          {currentFocus.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="learning-title">
+        <div class="section-heading">
+          <p class="eyebrow">Aprendizaje</p>
+          <h2 id="learning-title">Formación, aprendizaje y práctica</h2>
+        </div>
+        <p>
+          Estoy construyendo mi perfil técnico de forma autodidacta, combinando
+          estudio estructurado con práctica real.
+        </p>
+        <ul class="stack-list">
+          {learningAreas.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="eyebrow">Método</p>
+          <h2 id="work-title">Cómo trabajo</h2>
+        </div>
+        <div class="about__content">
+          {workingStyle.map((item) => <p>{item}</p>)}
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="profile-projects-title">
+        <div class="section-heading">
+          <p class="eyebrow">Proyectos</p>
+          <h2 id="profile-projects-title">Proyectos principales</h2>
+        </div>
+        <div class="project-grid">
+          {profileProjects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="interests-title">
+        <div class="section-heading">
+          <p class="eyebrow">Intereses</p>
+          <h2 id="interests-title">Áreas de interés</h2>
+        </div>
+        <ul class="stack-list">
+          {interests.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+
+      <section class="section contact" aria-labelledby="links-title">
+        <div class="section-heading">
+          <p class="eyebrow">Trabajo</p>
+          <h2 id="links-title">Dónde ver mi trabajo</h2>
+        </div>
+        <p>
+          Estos enlaces reúnen los proyectos y espacios donde estoy documentando lo
+          que aprendo y construyo.
+        </p>
+        <div class="contact-links">
+          {
+            workLinks.map((link, index) => (
+              <a
+                class={index === 0 ? "button button--primary" : "button button--secondary"}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>Pablo Carrasco · Hardware, homelab, automatización y proyectos reales.</p>
+    </footer>
+  </body>
+</html>

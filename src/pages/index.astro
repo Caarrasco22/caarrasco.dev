@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Projects from "../components/Projects.astro";
+import TechStack from "../components/TechStack.astro";
+import Contact from "../components/Contact.astro";
+
+const pageTitle = "Pablo Carrasco | Portfolio técnico";
+const pageDescription =
+  "Portfolio técnico de Pablo Carrasco: hardware, homelab, automatización, bots y proyectos maker.";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Hero />
+      <About />
+      <Projects />
+      <TechStack />
+      <Contact />
+    </main>
+    <footer class="site-footer">
+      <p>Pablo Carrasco · Hardware, homelab, automatización y proyectos reales.</p>
+    </footer>
+  </body>
+</html>

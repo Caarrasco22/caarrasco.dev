@@ -1,0 +1,14 @@
+---
+import { technologies } from "../data/portfolio.js";
+---
+
+<section class="section" id="stack" aria-labelledby="stack-title">
+  <div class="section-heading">
+    <p class="eyebrow">Áreas</p>
+    <h2 id="stack-title">Herramientas, técnica y trabajo práctico.</h2>
+  </div>
+
+  <ul class="stack-list" aria-label="Áreas, herramientas y conocimientos">
+    {technologies.map((technology) => <li>{technology}</li>)}
+  </ul>
+</section>

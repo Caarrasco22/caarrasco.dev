@@ -1,0 +1,28 @@
+---
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+  <div class="project-card__top">
+    <span class="badge">{project.status}</span>
+    <h3>{project.title}</h3>
+  </div>
+
+  <p>{project.description}</p>
+
+  <ul class="tag-list" aria-label={`Tecnologías y áreas de ${project.title}`}>
+    {project.tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+
+  {
+    project.links.length > 0 && (
+      <div class="project-links">
+        {project.links.map((link) => (
+          <a href={link.href} target="_blank" rel="noreferrer">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    )
+  }
+</article>

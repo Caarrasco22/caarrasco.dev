@@ -1,0 +1,28 @@
+---
+import { contactLinks, profile } from "../data/portfolio.js";
+---
+
+<section class="section contact" id="contacto" aria-labelledby="contact-title">
+  <div class="section-heading">
+    <p class="eyebrow">Contacto</p>
+    <h2 id="contact-title">Hablemos de proyectos prácticos.</h2>
+  </div>
+
+  <p>
+    Si quieres hablar sobre montaje de PCs, proyectos técnicos o colaboración,
+    puedes contactarme.
+  </p>
+
+  <div class="contact-links">
+    <a class="button button--primary" href={`mailto:${profile.email}`}>
+      {profile.email}
+    </a>
+    {
+      contactLinks.map((link) => (
+        <a class="button button--secondary" href={link.href} target="_blank" rel="noreferrer">
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+</section>
