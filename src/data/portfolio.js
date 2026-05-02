@@ -42,14 +42,14 @@ export const projects = [
     ],
   },
   {
-    title: "Desarrollo de pÃ¡ginas web",
+    title: "Desarrollo de páginas web",
     status: "En desarrollo / Servicio inicial",
     description:
-      "Una lÃ­nea de trabajo enfocada en crear webs sencillas, limpias y funcionales para proyectos personales, perfiles tÃ©cnicos y pequeÃ±os negocios. caarrasco.dev es la primera muestra real de este enfoque.",
-    tags: ["Astro", "Web", "Portfolio", "DiseÃ±o limpio", "Presencia online"],
+      "Una línea de trabajo enfocada en crear webs sencillas, limpias y funcionales para proyectos personales, perfiles técnicos y pequeños negocios. Primeras muestras reales listadas por dominio para acceder rápido a cada web.",
+    tags: ["Astro", "Web", "Portfolio", "Diseño limpio", "Presencia online"],
     links: [
       {
-        label: "Ver web",
+        label: "caarrasco.dev",
         href: "https://caarrasco.dev",
       },
     ],
