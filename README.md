@@ -1,5 +1,9 @@
 # caarrasco.dev
 
+[![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+[![Astro](https://img.shields.io/badge/built%20with-Astro-FF5D01.svg)](https://astro.build)
+[![Status](https://img.shields.io/badge/status-active-brightgreen.svg)]()
+
 Sitio web personal de Pablo Carrasco.
 
 Este proyecto funciona como portfolio tecnico y punto central para mostrar proyectos, aprendizaje, documentacion y trabajo practico relacionado con homelab, Linux, redes, self-hosting, bots de Discord, seguridad defensiva, PCs, impresion 3D y tecnologia aplicada.
