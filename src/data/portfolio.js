@@ -54,7 +54,7 @@ export const projects = [
       },
       {
         label: "Portfolio Iván",
-        href: "https://github.com/Caarrasco22/portfolio-ivan",
+        href: "https://ivancanas-ingieneria.com",
       },
     ],
   },
