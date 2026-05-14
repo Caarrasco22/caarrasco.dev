@@ -52,6 +52,66 @@ export const projects = [
         label: "caarrasco.dev",
         href: "https://caarrasco.dev",
       },
+      {
+        label: "Portfolio Iván",
+        href: "https://github.com/Caarrasco22/portfolio-ivan",
+      },
+    ],
+  },
+  {
+    title: "ClickBuildLabs",
+    status: "Web en producción",
+    description:
+      "Colección gratuita de herramientas online para tareas rápidas: calculadoras, conversores, utilidades de texto, JSON, fechas, imágenes y finanzas simples. Sitio estático, ligero y desplegado en Cloudflare Pages.",
+    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Cloudflare Pages"],
+    links: [
+      {
+        label: "Web",
+        href: "https://clickbuildlabs.com",
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/Caarrasco22/click-build-labs",
+      },
+    ],
+  },
+  {
+    title: "ContextDock",
+    status: "MVP / v0.1 experimental",
+    description:
+      "Aplicación local de escritorio para mantener contexto persistente entre sesiones de ChatGPT y OpenCode. Genera documentación estructurada del proyecto y prompts de arranque para retomar trabajo técnico con más continuidad.",
+    tags: ["Tauri", "Rust", "Next.js", "TypeScript", "Contexto local"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Caarrasco22/ContextDock",
+      },
+    ],
+  },
+  {
+    title: "SubTrack",
+    status: "Web app v0.1",
+    description:
+      "Aplicación sencilla para controlar suscripciones y pagos recurrentes: totales mensuales y anuales, próximas renovaciones, estados, categorías e insights básicos usando una base de datos SQLite local.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "SQLite"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Caarrasco22/subscription-tracker",
+      },
+    ],
+  },
+  {
+    title: "Public Image Collector",
+    status: "Desktop tool v0.1",
+    description:
+      "Herramienta local con interfaz gráfica para analizar páginas públicas, detectar imágenes disponibles y descargarlas de forma ordenada, con límites de uso responsable, comprobación de robots.txt y detección de duplicados.",
+    tags: ["Python", "PySide6", "GUI", "Web scraping responsable", "Herramienta local"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Caarrasco22/public-image-collector",
+      },
     ],
   },
   {
