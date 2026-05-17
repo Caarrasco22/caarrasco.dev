@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import LinkedInBadge from "../components/LinkedInBadge.astro";
 import { projects } from "../data/portfolio.js";
 
 const pageTitle = "Perfil técnico | Pablo Carrasco";
@@ -238,6 +239,7 @@ const workLinks = [
           }
         </div>
       </section>
+      <LinkedInBadge />
     </main>
     <footer class="site-footer">
       <p>Pablo Carrasco · Hardware, homelab, automatización y proyectos reales.</p>
