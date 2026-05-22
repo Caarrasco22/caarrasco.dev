@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local videos (hosted on R2 via URL, not in repo)
+public/portfolio/*.mp4
+public/portfolio/*.mov
+public/portfolio/*.mkv
+public/portfolio/*.webm
+public/portfolio/*.avi
