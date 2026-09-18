@@ -1,0 +1,16 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import { projects } from "../data/portfolio.js";
+---
+
+<section class="section projects" id="proyectos" aria-labelledby="projects-title" data-reveal>
+  <div class="section-number">02 / PROYECTOS</div>
+  <div class="section-heading projects__heading">
+    <div><p class="eyebrow">Selected work</p><h2 id="projects-title">Construido para<br /><em>salir al mundo.</em></h2></div>
+    <p>Una selección de servicios, productos y experimentos. Todos nacieron de un problema real.</p>
+  </div>
+
+  <div class="project-grid">
+    {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+  </div>
+</section>

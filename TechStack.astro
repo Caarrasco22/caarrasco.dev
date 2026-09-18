@@ -1,0 +1,17 @@
+---
+import { technologies } from "../data/portfolio.js";
+---
+
+<section class="section stack" id="stack" aria-labelledby="stack-title" data-reveal>
+  <div class="section-number">04 / CAPACIDADES</div>
+  <div class="section-heading section-heading--wide">
+    <p class="eyebrow">Lo que uso</p>
+    <h2 id="stack-title">De la terminal<br /><em>al taller.</em></h2>
+  </div>
+  <div class="stack__layout">
+    <p>Un perfil híbrido para construir soluciones completas. Tecnología digital, manos a la obra y una obsesión sana por entender cómo funciona todo.</p>
+    <ul class="stack-list" aria-label="Áreas, herramientas y conocimientos">
+      {technologies.map((technology, index) => <li><span>{String(index + 1).padStart(2, "0")}</span>{technology}</li>)}
+    </ul>
+  </div>
+</section>
