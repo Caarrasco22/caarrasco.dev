@@ -1,16 +1,10 @@
 ---
-import "../styles/global.css";
-import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Projects from "../components/Projects.astro";
-import TechStack from "../components/TechStack.astro";
-import Contact from "../components/Contact.astro";
-import LinkedInBadge from "../components/LinkedInBadge.astro";
+import "../styles/experience.css";
+import ScrollPortfolio from "../components/ScrollPortfolio.astro";
 
-const pageTitle = "Pablo Carrasco | Portfolio técnico";
+const pageTitle = "Pablo Carrasco | Tecnología + Cultura visual";
 const pageDescription =
-  "Portfolio técnico de Pablo Carrasco: hardware, homelab, automatización, bots y proyectos maker.";
+  "Proyectos de Pablo Carrasco: software, homelab, automatización y portfolio audiovisual. Herramientas útiles e historias con carácter, desde Cádiz.";
 ---
 
 <!doctype html>
@@ -27,17 +21,6 @@ const pageDescription =
     <title>{pageTitle}</title>
   </head>
   <body>
-    <Header />
-    <main>
-      <Hero />
-      <About />
-      <Projects />
-      <TechStack />
-      <Contact />
-      <LinkedInBadge />
-    </main>
-    <footer class="site-footer">
-      <p>Pablo Carrasco · Hardware, homelab, automatización y proyectos reales.</p>
-    </footer>
+    <ScrollPortfolio />
   </body>
 </html>

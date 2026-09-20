@@ -1,0 +1,130 @@
+---
+import Icon from "./ExperienceIcon.astro";
+import { profile, projects, technologies } from "../data/portfolio.js";
+
+const featured = [
+  { title: "ContextDock", id: "contextdock", category: "01 / SOFTWARE", headline: "Tu proyecto.\nSiempre en contexto.", accent: "lime", note: "Contexto local, trabajo continuo", art: "contextdock" },
+  { title: "ProxBot", id: "proxbot", category: "02 / AUTOMATIZACIÓN", headline: "Tu homelab.\nA un mensaje.", accent: "blue", note: "Infraestructura conectada", art: "proxbot" },
+  { title: "Driftwatch", id: "driftwatch", category: "03 / SEGURIDAD", headline: "Lo que cambia\nno pasa inadvertido.", accent: "coral", note: "Auditoría defensiva", art: "driftwatch" },
+].map(item => ({ ...projects.find(p => p.title === item.title), ...item }));
+const others = projects.filter(p => !featured.some(f => f.title === p.title));
+---
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<div class="reading-progress" aria-hidden="true"></div>
+<header class="editorial-header">
+  <a class="wordmark" href="#inicio" aria-label="Pablo Carrasco, inicio">caarrasco<span>.dev</span><span class="brand-dot" aria-hidden="true"></span></a>
+  <nav aria-label="Navegación principal">
+    <a href="#proyectos">Proyectos</a>
+    <a href="#visual">Visuals</a>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a class="nav-contact" href="#contacto">Hablemos <Icon /></a>
+  </nav>
+</header>
+
+<main id="contenido">
+  <section class="cover" id="inicio" aria-labelledby="cover-title">
+    <img class="cover-media" src="/media/reel-poster.jpg" width="1024" height="768" alt="Fotograma del archivo visual de Caarrasco, rodado junto a la costa" fetchpriority="high" />
+    <video class="cover-media cover-video" muted loop playsinline preload="none" poster="/media/reel-poster.jpg" aria-hidden="true" tabindex="-1" data-reel>
+      <source data-src="/portfolio/video.mp4" type="video/mp4" />
+    </video>
+    <div class="cover-shade" aria-hidden="true"></div>
+    <div class="cover-content">
+      <div class="cover-top"><span class="micro">TECNOLOGÍA + CULTURA VISUAL</span><span class="micro">INDEPENDIENTE / CÁDIZ</span></div>
+      <h1 id="cover-title">Pablo<br /><span>Carrasco.</span></h1>
+      <div class="cover-bottom">
+        <p>Construyo herramientas.<br />Doy forma a historias.</p>
+        <a class="cover-link" href="#proyectos">Explorar mi trabajo <span class="round-icon"><Icon name="down" /></span></a>
+      </div>
+    </div>
+    <button class="icon-button reel-control" type="button" data-reel-toggle aria-label="Reproducir vídeo de portada" title="Reproducir vídeo de portada" hidden>
+      <span data-play-icon><Icon name="play" /></span><span data-pause-icon hidden><Icon name="pause" /></span>
+    </button>
+  </section>
+
+  <section class="intro-band" aria-label="Introducción">
+    <span class="micro"><span class="live-dot"></span> LEARNING BY BUILDING</span>
+    <p>Del código al montaje.<br /><span>La misma curiosidad.</span></p>
+    <span class="intro-note">Software, sistemas y narrativa visual.<br />Proyectos propios. Procesos reales.</span>
+  </section>
+
+  <section class="work-section" id="proyectos" aria-labelledby="work-title">
+    <div class="section-top"><p class="micro">01 / PROYECTOS SELECCIONADOS</p><h2 id="work-title">Ideas en acción<span>.</span></h2><span class="micro">{String(featured.length).padStart(2, "0")} SELECCIONADOS / {String(projects.length).padStart(2, "0")} PROYECTOS</span></div>
+    <div class="project-story" data-story>
+      <div class="project-stage" aria-hidden="true">
+        {featured.map((project, index) => (
+          <div class:list={["project-art", `art--${project.art}`, { "is-active": index === 0 }]} data-art={project.id}>
+            <div class="art-top"><span>{project.note}</span><span>{String(index + 1).padStart(2, "0")} / 03</span></div>
+            {project.art === "contextdock" ? (
+              <div class="contextdock-art">
+                <span class="art-word">CONTEXT<span>DOCK</span></span>
+                <div class="cycle-line"><span>01<br /><small>Proyecto</small></span><span>02<br /><small>Contexto</small></span><span>03<br /><small>Continuidad</small></span></div>
+                <p>Retoma el hilo.<br />Sigue construyendo.</p>
+              </div>
+            ) : (
+              <div class="screen-art"><span class="screen-word">{project.title}</span><img src={`/media/${project.id === "proxbot" ? "proxbot-panel" : "driftwatch-report"}.png`} alt="" loading="lazy" width="1000" height="750" /></div>
+            )}
+            <div class="art-bottom"><span>{project.tags.slice(0, 3).join(" / ")}</span><Icon /></div>
+          </div>
+        ))}
+      </div>
+      <div class="project-chapters">
+        {featured.map((project, index) => (
+          <article class:list={["project-chapter", `chapter--${project.accent}`]} id={project.id} data-chapter={project.id}>
+            <div class="mobile-art" aria-hidden="true">
+              {project.id === "contextdock" ? <span>CONTEXT<span>DOCK</span></span> : <img src={`/media/${project.id === "proxbot" ? "proxbot-panel" : "driftwatch-report"}.png`} alt="" width="1000" height="750" loading="lazy" />}
+            </div>
+            <p class="micro chapter-label">{project.category}</p>
+            <h3>{project.headline.split("\n").map((line) => <span>{line}</span>)}</h3>
+            <p class="project-name">{project.title}</p>
+            <p class="project-description">{project.description}</p>
+            <ul class="project-tags" aria-label={`Tecnologías de ${project.title}`}>{project.tags.map(tag => <li>{tag}</li>)}</ul>
+            <a class="text-action" href={project.links[0].href} target="_blank" rel="noreferrer">Explorar en GitHub <Icon /></a>
+            <div class="chapter-position" aria-hidden="true"><span>0{index + 1}</span><span class="chapter-rule"></span><span>03</span></div>
+          </article>
+        ))}
+      </div>
+    </div>
+    <div class="project-index">
+      <div class="index-heading"><h3>Más cosas que construyo.</h3><a class="text-action" href={profile.githubUrl} target="_blank" rel="noreferrer">GitHub <Icon /></a></div>
+      {others.map((project, index) => (
+        <details class="project-row">
+          <summary><span class="row-number">{String(index + 4).padStart(2, "0")}</span><span class="row-title">{project.title}</span><span class="row-category">{project.tags.slice(0, 2).join(" / ")}</span><span class="row-toggle" aria-hidden="true">+</span></summary>
+          <div class="row-detail"><p>{project.description}</p><div>{project.links.map(link => <a class="text-action" href={link.href} target="_blank" rel="noreferrer">{link.label}<Icon /></a>)}</div></div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="visual-section" id="visual" aria-labelledby="visual-title">
+    <div class="section-top"><p class="micro">02 / PORTFOLIO VISUAL</p><span class="micro">RITMO. CORTE. COLOR.</span></div>
+    <h2 id="visual-title">Otra forma<br />de <em>construir.</em></h2>
+    <div class="visual-intro"><span class="visual-wordmark">CAARRASCO<span>VISUALS</span></span><p>La técnica también se siente. Edición musical, textura y narrativa para acompañar una historia, no solo enseñarla.</p></div>
+    <figure class="film-feature">
+      <div class="film-player">
+        <video id="featured-film" controls playsinline preload="none" poster="/media/reel-poster.jpg" aria-label="Archivo Visual 001, videoclip de Raul" data-film>
+          <source src="https://videos.caarrasco.dev/videoclip-01.mp4" type="video/mp4" />
+          Tu navegador no puede reproducir este vídeo.
+        </video>
+        <button class="film-play" type="button" data-film-play hidden><span class="round-icon"><Icon name="play" /></span><span>Ver la pieza<span class="micro">ARCHIVO VISUAL 001</span></span></button>
+      </div>
+      <figcaption><div><span class="micro">01 / VIDEOCLIP</span><h3>Archivo Visual 001</h3><p>Raul / Edición musical / 2026</p></div><p>Ritmo, corte, textura y energía visual.<br />Una pieza construida alrededor de la música.</p><a class="text-action" href="https://videos.caarrasco.dev/videoclip-01.mp4" target="_blank" rel="noreferrer">Abrir vídeo <Icon /></a></figcaption>
+    </figure>
+    <div class="visual-process" aria-label="Proceso de edición"><span class="micro">DE LA IDEA AL ÚLTIMO FRAME</span><p>Escuchar.<span>Editar.</span>Sentir.</p><a class="text-action" href="https://www.instagram.com/pcarrasco22" target="_blank" rel="noreferrer">Más en Instagram <Icon /></a></div>
+  </section>
+
+  <section class="about-section" id="sobre-mi" aria-labelledby="about-heading">
+    <p class="micro">03 / DETRÁS DEL TRABAJO</p>
+    <div class="about-layout"><h2 id="about-heading">Curiosidad.<br />Criterio.<br /><em>Manos a la obra.</em></h2><div><p class="about-lead">Soy Pablo. Aprendo construyendo, probando y volviendo a intentarlo.</p><p>{profile.summary} Me interesa entender cómo funcionan las cosas y convertir ese aprendizaje en algo útil.</p><p>Entre servidores, PCs y líneas de código también hay espacio para la imagen: grabación, montaje y una forma propia de contar.</p><a class="text-action" href="/perfil-tecnico">Mi perfil técnico <Icon /></a></div></div>
+    <div class="expertise"><p class="micro">MI CAJA DE HERRAMIENTAS</p><ul>{technologies.map(technology => <li>{technology}</li>)}</ul></div>
+  </section>
+
+  <section class="contact-section" id="contacto" aria-labelledby="contact-heading">
+    <div class="contact-top"><p class="micro">04 / SIGUIENTE PROYECTO</p><span class="micro">TECNOLOGÍA + VISIÓN</span></div>
+    <h2 id="contact-heading">Hagamos<br /><em>algo bueno.</em></h2>
+    <a class="contact-email" href={`mailto:${profile.email}`}>{profile.email}<Icon /></a>
+    <div class="contact-bottom"><p>Una herramienta útil. Una historia que contar.<br />Todo empieza con una conversación.</p><div><a href={profile.githubUrl} target="_blank" rel="noreferrer">GitHub <Icon /></a><a href="https://es.linkedin.com/in/pablo-carrasco-benito-1b825a225" target="_blank" rel="noreferrer">LinkedIn <Icon /></a><a href="https://www.instagram.com/pcarrasco22" target="_blank" rel="noreferrer">Instagram <Icon /></a></div></div>
+  </section>
+</main>
+<footer class="editorial-footer"><a class="wordmark" href="#inicio">caarrasco.dev</a><span>© {new Date().getFullYear()} Pablo Carrasco</span><a class="back-top" href="#inicio" aria-label="Volver al inicio" title="Volver al inicio"><Icon name="up" /></a></footer>
+<script src="../scripts/experience.ts"></script>

@@ -17,8 +17,20 @@ Este proyecto funciona como portfolio tecnico y punto central para mostrar proye
 
 ## Paginas principales
 
-- `/` - Pagina principal del portfolio.
+- `/` - Portfolio unificado: proyectos con escenas ligadas al scroll, archivo visual, perfil y contacto.
 - `/perfil-tecnico` - Perfil tecnico tipo CV/GitHub profile integrado en la web.
+- `/portfolio` - Redirige a `/#visual`; el archivo visual se reproduce en la pagina principal.
+
+## Experiencia visual
+
+- `src/components/ScrollPortfolio.astro` contiene las secciones de la pagina principal.
+- `src/data/portfolio.js` sigue siendo la fuente de proyectos, enlaces y tecnologias.
+- `src/styles/experience.css` y `src/scripts/experience.ts` controlan el aspecto y las transiciones.
+- En escritorio, el visual fijo cambia entre ContextDock, ProxBot y Driftwatch con el scroll nativo. En movil, cada proyecto presenta su imagen junto al texto. SubTrack permanece en el indice de proyectos.
+- El reel de portada se pausa fuera de pantalla. No se reproduce automaticamente en movil, con ahorro de datos o con movimiento reducido.
+- El videoclip completo carga solo al reproducirlo. Sin JavaScript conserva los controles nativos.
+- Las capturas de ProxBot y Driftwatch son de los proyectos originales. El poster se ha extraido del reel existente; los iconos proceden de Lucide (licencia en `public/media/lucide-LICENSE.txt`).
+- El anterior export visual se conserva en `public/portfolio/legacy.html`, junto con sus recursos.
 
 ## Instalacion local
 
